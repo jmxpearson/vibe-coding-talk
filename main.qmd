@@ -190,3 +190,26 @@ After 45 minutes(!) of churning Claude produced the following:
 ## Results
 After 45 minutes(!) of churning Claude produced the following:
 ![](images/validate_burst_stats.png)
+
+## More pleading
+> This branch uses a Hodgkin-Huxley version of the Area X MSNs. The result is better, but there are some problems:
+> 
+::: {.nonincremental}
+> - HVC_X intra-burst rates are too low. Most cells seem to only spike once per burst.
+> - Perhaps as a result, MSNs emit too few spikes per burst.
+> - MSNs burst too many times per motif. I suspect this is because they receive too many HVC_X inputs per neuron.
+> Please make a plan to address these issues (preferably in this order).
+:::
+
+## Results
+
+- Claude churned and churned and churned trying to reason about how to modify parameters to make things work. 
+- Looking at the detailed thinking trace, I could see this was probably not the best approach. The spiking model was too simple to capture what I wanted.
+
+. . .
+
+::: {.callout-tip}
+These tools will not often ask you for help when lost. They may remain fixated on a losing strategy at considerable cost (time and money). Their goal is work it out for themselves, but they have a limited perspective.
+
+Think _undergrad._
+:::
