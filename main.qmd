@@ -1,0 +1,192 @@
+---
+title: "The PI's guide to vibe coding"
+author: "John Pearson"
+format: 
+  revealjs:
+    incremental: true
+---
+# Yes, yes, I know
+
+::: {.callout-warning} 
+## Disclaimer
+I have as many concerns (societal, environmental, ethical) about AI models as you do. I am happy to discuss these offline. I may not be using these models in a year. My goal today is to show you _what they are capable of_ without necessarily endorsing their use.
+:::
+
+
+## What is vibe coding?
+::: {.callout-note}
+## Vibe coding
+Use of large language models (LLMs) like Copilot (GitHub), Cursor, Codex (OpenAI), or Claude Code (Anthropic) to write software, often with minimal human intervention.
+:::
+
+## Isn't this _insane?_
+_Quite possibly!_
+
+It is also incredibly powerful. 
+
+At the very least, you need to be aware of limitations and footguns.
+
+## Some personal history
+A highly simplified timeline:
+
+- **Fall 2023:** Impressive on simple things, problems with complicated problems. Quickly devolved into hard-to-fix bugs.
+- **Spring 2025:** "Agentic Coding" models can now use command-line tools, browsers, etc. to get information and interact with the world.
+- **November 2025:** Takeoff. Claude Code turns a major corner. Reports all over social media. Agentic tools hit an inflection point.
+
+## A mental model
+You will be surprised by how powerful these tools are. 
+
+You will be dumbfounded at how stupid these tools can be.
+
+::: {.callout-tip}
+## My best mental model
+Claude Code is as good as the best undergrads I've ever had.
+:::
+
+Capable of tremendous things, but you'd better check up on it.
+
+## How do you work with an agent?
+- Provide clear, detailed instructions. They are not alive, they don't "understand," but more detail is better.
+- Check their work. If you're a PI, use your PI skills:
+	- Ask for plots. Lots of plots.
+	- Have it do control experiments.
+- Agents have a "context window" that controls what they know. Use "fresh" agents to check each other's work.
+
+. . .
+
+#### [What would a student have to show you to prove the code works?]{style="color:red;"}
+
+
+## Case study: song circuits
+
+- My goal is to create a biophysically plausible spiking neuron model of the entire song circuit.
+
+- Ziyi has graduated and has more important things to finish.
+
+- I would never have time to do this myself under normal circumstances.
+
+## Phase I: Research 
+I created a project on [claude.ai](https://claude.ai/chat/3f990d69-2284-49a3-a48f-5855c9054dd2), turned on "Research" and prompted it.
+
+
+Claude summarized _hundreds_ of sources from the internet, including pubmed, arXiv, and [ModelDB](https://modeldb.science). It created a **13 page pdf** complete with parameter tables and equations.
+
+## Some caveats
+Seems great, right?
+
+- Initially, many tables were missing numbers. I had to prompt Claude to go back and fill them in. 
+- At least one model link was a 404.
+- I asked whether the document contained estimates of actual cell numbers, and it had to go back and include that information.
+
+## Pitfall: Cognitive debt
+Confession: I didn't read these reports. Well, I skimmed them. 
+
+. . .
+
+::: {.callout-note}
+## Cognitive Debt
+Like technical debt, but for mental resources. Cognitive debt accrues when results are produced faster than you as a human have time to think about them carefully.
+:::
+
+## Enter Claude Code
+CC is more powerful than the chat window or the app:
+
+- Using chat forces you to copy/paste over and over 
+- The app has to regenerate all code from scratch each time.
+- This burns a _lot_ of tokens. (I pay \$20/month.) 
+- CC can edit your files directly, run tests, interface with GitHub, install packages, etc.
+- **Be careful!**
+
+## Phase II: initial model creation
+CC has a `/plan` mode that allows you to explore options and interact _before any code is written._ 
+
+> I want to make a spiking neural network simulation based on the research in @docs/HVC_X_Neuron_models.md. I'd like to use the Brian 2 Python package. For this project, I want to model some HVC to Area X neurons that burst a few times each and cover the 0.8 seconds of a zebra finch song motif. Once complete, the code should produce a raster plot that shows each neuron bursting during song. Time should be on the x axis and each neuron should be a row, ordered by the time of their first bursts.
+
+## Results:
+
+Claude asked three clarifying questions; answers were:
+
+- Number of HVC_X neurons → **200**
+- Model complexity → **Level 3 — AdEx + T-type rebound (Recommended)**
+- Bursting mechanism → **Tonic inhibition + disinhibition windows (Recommended)**
+
+. . .
+
+This produced `main.py` (the initial commit): 200 HVC_X AdEx neurons with 2-gate T-type rebound, driven by tonic virtual interneurons with per-neuron disinhibition windows.
+
+## Checking Phase II:
+I had Claude make a raster plot, and some issues immediately showed up:
+
+- Many neurons burst at the same time. Instead of tiling the motif, they were locked at particular points.
+
+- I didn't notice this at the time, but the intra-burst rate was way too low.
+
+- I had to ask Claude to input jitter of GABAergic inputs to the cells and choose a better method for selecting burst times.
+
+- I confirmed (again by raster) that bursts now tiled the motif.
+
+## Phase III: Adding Area X
+
+> I'd now like to add connections from these HVC neurons to Area X based on @"docs/Area X composition.md" with dynamics based on @"docs/Area X spiking models.md". I'd like to preserve ratios between HVC inputs and other cell types. It will be difficult to get everything right, but my primary interest is in the spiking behavior of spiny neurons and the output pallidal cells. Propose both a simple (AdEx or similar) and fully biophysical (Hodgkin-Huxley) version of the expanded model. Also propose some functional tests (plots or otherwise) we could use to verify everything is working properly.
+
+<!-- During research to create these documents, I'd told Claude to pay specific attention to recent connectomics results for this region. -->
+
+## Checking Phase III
+In looking at the rasters, I immediately noticed problems:
+
+> Please describe the setup for making the raster plot in the new version of the model.
+> Are we simply allowing the network to reach steady-state over the first 400ms?
+> Why do MSNs only start firing around 400 ms?
+
+- Claude correctly noted that the simulation hadn't started at steady-state, so I asked it to add a burn-in period prior to the motif.
+
+- Claude did this **and auto-tuned the model parameters** until it was satisfied that things were working as planned.
+
+## Pro: self-checking
+
+::: {.callout-tip}
+Tools like CC are now quite good at _checking themselves_ if you tell them what to pay attention to. They will compute diagnostics, check them against specs, and make parameter changes to best match what you want.
+:::
+
+
+## Con: churn time
+
+::: {.callout-warning}
+Because of self-checking, models can take a long time (15min - 1hr) to return. This eats \$\$\$ and time. You can stop the model at any time to give it hints, but this is a rate-limiting factor.
+ 
+They are not always smart about how they vary parameters. 
+
+Again, _think undergrad._
+:::
+
+
+## More checking Phase III
+- Results from the new model _seemed_ pretty good, but I also know some details about the system. 
+
+- I asked Claude to run multiple simulations to look at reliability of MSN firing. It was all over the place!
+
+- This led to a whole round of tuning the model to try to get the correct firing statistics.
+
+## Starting over
+I decided that simplified neuron models weren't cutting it. 
+
+> We've been having some trouble with the simplified Area X model, so I'd like to try the following:
+>
+::: {.nonincremental}
+>  - Check out a new branch named "hh".  
+>  - Switch from the simplified to the Hodgkin-Huxley based neuron model for Area X cells.
+>  - Restore parameters to the values in @"docs/Area X spiking models.md" and let's try the same diagnostics as before, including running @validate_areax.py.
+:::
+>
+
+## Results
+After 45 minutes(!) of churning Claude produced the following:
+![](images/validate_raster.png)
+
+## Results
+After 45 minutes(!) of churning Claude produced the following:
+![](images/validate_burst_counts.png)
+
+## Results
+After 45 minutes(!) of churning Claude produced the following:
+![](images/validate_burst_stats.png)
