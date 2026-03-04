@@ -61,7 +61,7 @@ Capable of tremendous things, but you'd better check up on it.
 
 - My goal is to create a biophysically plausible spiking neuron model of the entire song circuit.
 
-- Ziyi has graduated and has more important things to finish.
+- My student has graduated and has more important things to finish.
 
 - I would never have time to do this myself under normal circumstances.
 
@@ -79,7 +79,11 @@ Seems great, right?
 - I asked whether the document contained estimates of actual cell numbers, and it had to go back and include that information.
 
 ## Pitfall: Cognitive debt
-Confession: I didn't read these reports. Well, I skimmed them. 
+Confession: I didn't read these reports. 
+
+. . .
+
+Well, I skimmed them. 
 
 . . .
 
@@ -93,16 +97,16 @@ CC is more powerful than the chat window or the app:
 
 - Using chat forces you to copy/paste over and over 
 - The app has to regenerate all code from scratch each time.
-- This burns a _lot_ of tokens. (I pay \$20/month.) 
+- This burns a _lot_ of tokens. 
 - CC can edit your files directly, run tests, interface with GitHub, install packages, etc.
-- **Be careful!**
+- **Be careful!** There are [security risks](https://code.claude.com/docs/en/security).
 
-## Phase II: initial model creation
+## Phase II: Initial model creation
 CC has a `/plan` mode that allows you to explore options and interact _before any code is written._ 
 
 > I want to make a spiking neural network simulation based on the research in @docs/HVC_X_Neuron_models.md. I'd like to use the Brian 2 Python package. For this project, I want to model some HVC to Area X neurons that burst a few times each and cover the 0.8 seconds of a zebra finch song motif. Once complete, the code should produce a raster plot that shows each neuron bursting during song. Time should be on the x axis and each neuron should be a row, ordered by the time of their first bursts.
 
-## Results:
+## Results (as summarized by Claude):
 
 Claude asked three clarifying questions; answers were:
 
@@ -261,3 +265,7 @@ You will _eventually_ have to form a mental model of what's going on.
 
 If you have one already, you are all but home free. If you don't, you're just guessing.
 :::
+
+
+## More overthinking
+Every time I asked Claude to implement the full model, it went in circles trying to check parameter values. I decided to ask the web interface to make a plan so that I could give that to CC as a guide.
