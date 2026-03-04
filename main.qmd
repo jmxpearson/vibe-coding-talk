@@ -269,3 +269,10 @@ If you have one already, you are all but home free. If you don't, you're just gu
 
 ## More overthinking
 Every time I asked Claude to implement the full model, it went in circles trying to check parameter values. It also insisted on looking for a ModelDB entry that was a dead link. I decided to ask the web interface to make a plan so that I could give that to CC as a guide.
+
+## Give Claude what it needs
+
+::: {.callout-tip}
+## Make files available
+In some cases, Claude repeatedly downloaded files (or failed to download files) that it thought it needed. It would have been a better idea for me to assemble some of this information (particularly existing code) in a place where it was readily accessible and point CC to it.
+:::
