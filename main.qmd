@@ -213,3 +213,51 @@ These tools will not often ask you for help when lost. They may remain fixated o
 
 Think _undergrad._
 :::
+
+## A new way to work
+Fortunately, we can modify how Claude works, either through [CLAUDE.md](https://code.claude.com/docs/en/overview) or through [skills](https://code.claude.com/docs/en/skills).
+
+So I added a `/tightloop` skill:
+
+```
+---
+name: tightloop 
+description: Work together with Claude in a tight feedback loop, iteratively adjusting settings and checking in for guidance. Use when thinking seems to be going in circles without resolving itself, when repeatedly running code with new parameters, or when the user says, "Let's work together."
+---
+
+When working together in a tight feedback loop, Claude should:
+
+1. Briefly restate the current problem status. If there is no clear problem, Claude should ask the user what they want to work on.
+2. Propose a change to test, along with a brief rationale and the expected test outcome.
+3. Ask for feedback about the proposal. 
+4. Repeat steps 2 and 3 until the user gives permission to proceed.
+5. Implement the change. Tell the user what outputs, including plots, will be generated. Ask if the user wants any additional information compiled.
+6. Run the code. 
+7. Tell the user where to find outputs. 
+8. Ask the user if Claude should look at the outputs.
+9. Repeat -- do not exit /tightloop -- until the user says you're on your own or the problem is solved.
+
+Be brief unless the user asks for elaboration. 
+Do not run models without asking the user first. 
+The goal is to minimize the time the user spends waiting on a response.
+```
+
+## Result
+- After using `/tightloop`, I found that CC was fighting a very low resting potential.
+- I asked CC to do a web search and make sure -72mV was the resting potential _in vivo_. It was not.
+- CC suggested injecting enough excitatory current to bring the potential up to measured values.
+
+## The hard lesson
+It's easy to keep tweaking and running models _ad infinitum._
+
+If you're not thinking about what you're doing, you're just wasting time.
+
+. . .
+
+::: {.callout-important}
+Coding models will not save you from thinking hard. 
+
+You will _eventually_ have to form a mental model of what's going on. 
+
+If you have one already, you are all but home free. If you don't, you're just guessing.
+:::
