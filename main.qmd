@@ -225,7 +225,7 @@ So I added a `/tightloop` skill:
 
 ```
 ---
-name: tightloop 
+name: shortleash 
 description: Work together with Claude in a tight feedback loop, iteratively adjusting settings and checking in for guidance. Use when thinking seems to be going in circles without resolving itself, when repeatedly running code with new parameters, or when the user says, "Let's work together."
 ---
 
@@ -284,3 +284,30 @@ I spent a lot of time in the ensuing days have Claude implement more complex mod
 ## Don't let Claude take your job
 Once a model is coded correctly, Claude may not be good at debugging complex interactions of parameters. In that phase, you might ask it for advice, but it's better as your co-pilot than vice-versa.
 :::
+
+## I wasted a lot of time
+. . .
+
+_How did I waste so much time?_
+
+. . .
+
+I don't have to tell you &mdash; stop asking!
+
+. . .
+
+The problem was that I was letting Claude try to tune models, and it had bad/limited intuition.
+
+. . .
+
+I went back to a simpler model (AdEx), took the time to understand it, and performed parameter tuning myself.
+
+## Use coding models when
+
+- You know what you want.
+- You are either
+  - Capable of doing it yourself or
+  - Have a good mental model of how it should work
+- You have a clear set of acceptance criteria
+- You know how to stress test the result
+- You are the one making substantive decisions
