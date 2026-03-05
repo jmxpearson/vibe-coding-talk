@@ -276,3 +276,11 @@ Every time I asked Claude to implement the full model, it went in circles trying
 ## Make files available
 In some cases, Claude repeatedly downloaded files (or failed to download files) that it thought it needed. It would have been a better idea for me to assemble some of this information (particularly existing code) in a place where it was readily accessible and point CC to it.
 :::
+
+## The jagged frontier
+I spent a lot of time in the ensuing days have Claude implement more complex models and trying to tune them. This was a bad idea.
+
+::: {.callout-warning}
+## Don't let Claude take your job
+Once a model is coded correctly, Claude may not be good at debugging complex interactions of parameters. In that phase, you might ask it for advice, but it's better as your co-pilot than vice-versa.
+:::
