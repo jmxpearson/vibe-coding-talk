@@ -336,10 +336,13 @@ I went back to a simpler model (AdEx), took the time to understand it, and perfo
 - You know how to stress test the result
 - You are the one making substantive decisions
 
-## Some things you can ask models to to
+## Some things you can ask models to do
 
 - Go summarize some literature
 - Explain how someone else's code:
   - is organized
   - where a parameter is defined or altered
   - how/where to change code to make it do something else
+- Translate code from one language to another
+- Make a complex figure you can tweak
+- Write automated tests (check the tests!)
