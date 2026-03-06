@@ -1,11 +1,26 @@
 ---
 title: "The PI's guide to vibe coding"
+title-slide-attributes: 
+  data-background-opacity: "0.5"
+  data-background-image: "https://media.gq.com/photos/56e6daa0a159fcbd79d5edb3/16:9/w_2240,c_limit/don-draper-couch.JPG"
 author: "John Pearson"
 format: 
   revealjs:
     incremental: true
 ---
-# Yes, yes, I know
+## Being a PI is hard
+<iframe 
+  src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F60minutes%2Fvideos%2Fi-have-no-technical-ability-and-i-know-nothing-about-music%2F562321142436012%2F&show_text=false&width=734&hd=1"
+  width="734" 
+  height="413" 
+  style="border:none;overflow:hidden" 
+  scrolling="no" 
+  frameborder="0" 
+  allowfullscreen="true" 
+  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+</iframe>
+
+## Yes, yes, I know
 
 ::: {.callout-warning} 
 ## Disclaimer
@@ -221,7 +236,7 @@ Think _undergrad._
 ## A new way to work
 Fortunately, we can modify how Claude works, either through [CLAUDE.md](https://code.claude.com/docs/en/overview) or through [skills](https://code.claude.com/docs/en/skills).
 
-So I added a `/tightloop` skill:
+So I added a `/shortleash` skill:
 
 ```
 ---
@@ -239,7 +254,7 @@ When working together in a tight feedback loop, Claude should:
 6. Run the code. 
 7. Tell the user where to find outputs. 
 8. Ask the user if Claude should look at the outputs.
-9. Repeat -- do not exit /tightloop -- until the user says you're on your own or the problem is solved.
+9. Repeat -- do not exit /shortleash -- until the user says you're on your own or the problem is solved.
 
 Be brief unless the user asks for elaboration. 
 Do not run models without asking the user first. 
@@ -247,7 +262,7 @@ The goal is to minimize the time the user spends waiting on a response.
 ```
 
 ## Result
-- After using `/tightloop`, I found that CC was fighting a very low resting potential.
+- After using `/shortleash`, I found that CC was fighting a very low resting potential.
 - I asked CC to do a web search and make sure -72mV was the resting potential _in vivo_. It was not.
 - CC suggested injecting enough excitatory current to bring the potential up to measured values.
 
@@ -302,6 +317,15 @@ The problem was that I was letting Claude try to tune models, and it had bad/lim
 
 I went back to a simpler model (AdEx), took the time to understand it, and performed parameter tuning myself.
 
+## Results
+![](images/validate_raster_good.png)
+
+## Results
+![](images/validate_burst_counts_good.png)
+
+## Results
+![](images/validate_burst_stats_good.png)
+
 ## Use coding models when
 
 - You know what you want.
@@ -311,3 +335,11 @@ I went back to a simpler model (AdEx), took the time to understand it, and perfo
 - You have a clear set of acceptance criteria
 - You know how to stress test the result
 - You are the one making substantive decisions
+
+## Some things you can ask models to to
+
+- Go summarize some literature
+- Explain how someone else's code:
+  - is organized
+  - where a parameter is defined or altered
+  - how/where to change code to make it do something else
