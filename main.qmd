@@ -326,6 +326,28 @@ I went back to a simpler model (AdEx), took the time to understand it, and perfo
 ## Results
 ![](images/validate_burst_stats_good.png)
 
+## Summary
+. . .
+
+Coding agents are really good at getting you 95% of the way there.
+
+. . .
+
+The last 5% is up to you. Agents are better advisors than implementers here.
+
+. . . 
+
+When you know what you want and have a good mental model, agents are superpowers.
+
+. . .
+
+If you don't know what you want or how to think about it, agents will not save you.
+
+. . . 
+
+The hard part is still the hard part.
+
+
 ## Use coding models when
 
 - You know what you want.
@@ -338,11 +360,11 @@ I went back to a simpler model (AdEx), took the time to understand it, and perfo
 
 ## Some things you can ask models to do
 
-- Go summarize some literature
+- Go summarize some literature (as a starting point)
 - Explain how someone else's code:
   - is organized
   - where a parameter is defined or altered
   - how/where to change code to make it do something else
 - Translate code from one language to another
 - Make a complex figure you can tweak
-- Write automated tests (check the tests!)
+  - Create a dashboard with [fastplotlib](https://fastplotlib.org)
