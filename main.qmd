@@ -182,6 +182,15 @@ CC is more powerful than the chat window or the app:
 - CC can search the web, edit your files, run tests, interface with GitHub, install packages, etc.
 - **Be careful!** There are [security risks](https://code.claude.com/docs/en/security).
 
+## Fair warning
+. . .
+
+::: {.callout-warning}
+These tools are powerful, but you are giving a program license to rewrite your code.
+
+Using version control, good tooling (`conda/mamba/uv`), and testing (where appropriate) are the _absolute minimum_.
+:::
+
 ## Phase II: Initial model creation
 CC has a `/plan` mode that allows you to explore options and interact _before any code is written._ 
 
