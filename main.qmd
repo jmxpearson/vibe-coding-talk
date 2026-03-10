@@ -20,6 +20,34 @@ format:
   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
 </iframe>
 
+
+## Rick Rubin selected c.v. {.scrollable}
+
+<div style="font-size: 0.4em;">
+| \# | Title | Artist | Year | Type | Billboard Peak | US Certification | Grammy | Notes |
+|---|-------|--------|------|------|---------------|-----------------|--------|-------|
+| 1 | *Radio* | LL Cool J | 1985 | Album | #46 (200) | Gold | — | First major hip-hop LP on Def Jam |
+| 2 | *Licensed to Ill* | Beastie Boys | 1986 | Album | **#1** (200) | 10× Platinum | — | First rap album to top Billboard 200 |
+| 3 | "Walk This Way" | Run-DMC ft. Aerosmith | 1986 | Single | #4 (Hot 100) | 2× Platinum | — | Rubin produced; ~1B streams |
+| 4 | *Reign in Blood* | Slayer | 1986 | Album | #94 (200) | Platinum | — | Defining thrash metal record |
+| 5 | *The Razors Edge* | AC/DC | 1990 | Album | #2 (200) | 5× Platinum | — | "Thunderstruck" #5 Mainstream Rock |
+| 6 | *Blood Sugar Sex Magik* | Red Hot Chili Peppers | 1991 | Album | #3 (200) | 7× Platinum | — | "Under the Bridge" #2 Hot 100 |
+| 7 | *American Recordings* | Johnny Cash | 1994 | Album | #110 (200) | Gold | Best Contemporary Folk Album | Launched Cash's critical renaissance |
+| 8 | *Wildflowers* | Tom Petty | 1994 | Album | #8 (200) | 2× Platinum | — | Widely regarded career-best |
+| 9 | *Californication* | Red Hot Chili Peppers | 1999 | Album | #3 (200) | 5× Platinum | — | ~4B streams on Spotify |
+| 10 | *Toxicity* | System of a Down | 2001 | Album | **#1** (200) | 4× Platinum | — | Title track #1 Mainstream Rock |
+| 11 | *American IV: The Man Comes Around* | Johnny Cash | 2002 | Album | #22 (200) | Platinum | Best Male Country Vocal ("Hurt") | "Hurt" video won Grammy; ~700M streams |
+| 12 | *Audioslave* | Audioslave | 2002 | Album | #7 (200) | 3× Platinum | — | "Like a Stone" #1 Mainstream Rock |
+| 13 | *Meteora* | Linkin Park | 2003 | Album | **#1** (200) | 6× Platinum | — | 27 weeks at #1 on Rock charts |
+| 14 | "99 Problems" | Jay-Z | 2003 | Single | #8 (Hot 100) | Platinum | Best Rap Solo Performance | Rubin produced; ~1B streams |
+| 15 | *Vol. 3: The Subliminal Verses* | Slipknot | 2004 | Album | #2 (200) | 2× Platinum | Best Metal Performance ("Before I Forget") | — |
+| 16 | *Stadium Arcadium* | Red Hot Chili Peppers | 2006 | Album | **#1** (200) | 3× Platinum | Best Rock Album | 28 Grammy nominations across career for Rubin-produced RHCP |
+| 17 | *Weezer (Red Album)* | Weezer | 2008 | Album | #4 (200) | Gold | — | — |
+| 18 | *Death Magnetic* | Metallica | 2008 | Album | **#1** (200) | Platinum | — | #1 in 34 countries |
+| 19 | *13* | Black Sabbath | 2013 | Album | **#1** (200) | Gold | Best Metal Performance ("God Is Dead?") | Band's first #1 album |
+| 20 | *Yeezus* | Kanye West | 2013 | Album | **#1** (200) | Platinum | — | 9 Grammy nominations for the album |
+</div>
+
 ## Yes, yes, I know
 
 ::: {.callout-warning} 
@@ -33,6 +61,8 @@ I have as many concerns (societal, environmental, ethical) about AI models as yo
 ## Vibe coding
 Use of large language models (LLMs) like Copilot (GitHub), Cursor, Codex (OpenAI), or Claude Code (Anthropic) to write software, often with minimal human intervention.
 :::
+
+![From [_Welcome to Gas Town_](https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04)](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*3iC6cilfUdvndZUVRELmBA.jpeg)
 
 ## Isn't this _insane?_
 _Quite possibly!_
@@ -49,16 +79,21 @@ A highly simplified timeline:
 - **November 2025:** Takeoff. Claude Code turns a major corner. Reports all over social media. Agentic tools hit an inflection point.
 
 ## A mental model
+. . .
+
 You will be surprised by how powerful these tools are. 
+
+. . .
 
 You will be dumbfounded at how stupid these tools can be.
 
+. . .
+
 ::: {.callout-tip}
 ## My best mental model
-Claude Code is as good as the best undergrads I've ever had.
+Claude Code is as good as the best undergrads I've ever had. Capable of tremendous things, but you'd best check up on it.
 :::
 
-Capable of tremendous things, but you'd better check up on it.
 
 ## How do you work with an agent?
 - Provide clear, detailed instructions. They are not alive, they don't "understand," but more detail is better.
@@ -90,15 +125,24 @@ The best we have at this point are anecdote and folk wisdom (that rapidly grow o
 
 ## Case study: song circuits
 
+:::: {.columns}
+::: {.column width="50%"}
 - My goal is to create a biophysically plausible spiking neuron model of the entire song circuit.
 
 - My student has graduated and has more important things to finish.
 
 - I would never have time to do this myself under normal circumstances.
-
+:::
+::: {.column width="50%"}
+![](images/learning_circuit.png)
+::: 
+::::
 ## Phase I: Research 
+. . .
+
 I created a project on [claude.ai](https://claude.ai/chat/3f990d69-2284-49a3-a48f-5855c9054dd2), turned on "Research" and prompted it.
 
+. . .
 
 Claude summarized _hundreds_ of sources from the internet, including pubmed, arXiv, and [ModelDB](https://modeldb.science). It created a **13 page pdf** complete with parameter tables and equations.
 
@@ -110,7 +154,9 @@ Seems great, right?
 - I asked whether the document contained estimates of actual cell numbers, and it had to go back and include that information.
 
 ## Pitfall: Cognitive debt
-Confession: I didn't read these reports. 
+. . .
+
+Confession: I didn't read these reports.
 
 . . .
 
@@ -123,17 +169,23 @@ Well, I skimmed them.
 Like technical debt, but for mental resources. Cognitive debt accrues when results are produced faster than you as a human have time to think about them carefully.
 :::
 
+. . .
+
+Like papers, grants, etc., automated coding tools require managing cognitive debt.
+
 ## Enter Claude Code
 CC is more powerful than the chat window or the app:
 
 - Using chat forces you to copy/paste over and over 
 - The app has to regenerate all code from scratch each time.
 - This burns a _lot_ of tokens. 
-- CC can edit your files directly, run tests, interface with GitHub, install packages, etc.
+- CC can search the web, edit your files, run tests, interface with GitHub, install packages, etc.
 - **Be careful!** There are [security risks](https://code.claude.com/docs/en/security).
 
 ## Phase II: Initial model creation
 CC has a `/plan` mode that allows you to explore options and interact _before any code is written._ 
+
+. . .
 
 > I want to make a spiking neural network simulation based on the research in @docs/HVC_X_Neuron_models.md. I'd like to use the Brian 2 Python package. For this project, I want to model some HVC to Area X neurons that burst a few times each and cover the 0.8 seconds of a zebra finch song motif. Once complete, the code should produce a raster plot that shows each neuron bursting during song. Time should be on the x axis and each neuron should be a row, ordered by the time of their first bursts.
 
@@ -384,3 +436,7 @@ The hard part is still the hard part.
 - Translate code from one language to another
 - Make a complex figure you can tweak
   - Create a dashboard with [fastplotlib](https://fastplotlib.org)
+
+## Thanks!
+
+![](https://swiss-ipg.com/media/k2/items/cache/d197c421d422f5cbf569ea13f09ef700_L.jpg)
