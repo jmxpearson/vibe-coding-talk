@@ -71,6 +71,22 @@ Capable of tremendous things, but you'd better check up on it.
 
 #### [What would a student have to show you to prove the code works?]{style="color:red;"}
 
+## I'm going to tell you a story
+. . .
+
+It's hard to _teach_ these tools in any straighforward way.
+
+. . .
+
+::: {.callout-note}
+## The jagged frontier
+Coined by [Dell'Acqua _et al._ (2023)](https://www.hbs.edu/ris/Publication%20Files/24-013_d9b45b68-9e74-42d6-a1c6-c72fb70c7282.pdf), the jagged frontier refers to the limits current model capabilities. "Jagged" because it's difficult to reason about how a model will perform on a new task based on past experience. Models can be a surprising mix of skilled and incompetent on tasks of similar human difficulty.
+:::
+
+. . .
+
+The best we have at this point are anecdote and folk wisdom (that rapidly grow obsolete).
+
 
 ## Case study: song circuits
 
